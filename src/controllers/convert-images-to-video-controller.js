@@ -15,14 +15,14 @@ const convertImagesToVideo = asyncHandler(async (req, res) => {
 
   const imagesMap = images.map((e, i) => ({
     path: `./public/assets/resize-imgs/${e.filename}`,
-    loop: 1,
+    loop: 2,
   }))
 
   const videoOptions = {
     fps: 30,
     // loop: 1, // seconds
     transition: true,
-    transitionDuration: 1, // seconds
+    transitionDuration: 0.3, // seconds
     videoBitrate: 1024,
     videoCodec: 'libx264',
     size: '640x?',
