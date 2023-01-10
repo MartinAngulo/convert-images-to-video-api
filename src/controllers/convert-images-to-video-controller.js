@@ -31,7 +31,10 @@ const convertImagesToVideo = asyncHandler(async (req, res) => {
     format: 'mp4',
     pixelFormat: 'yuv420p',
   }
-  const videoPath = `./public/assets/videos/Video-${images[0].originalname}.mp4`
+  const videoPath = `./public/assets/videos/Video-${images[0].originalname.slice(
+    0,
+    images[0].originalname.length - 4
+  )}.mp4`
   videoshow(imagesMap, videoOptions)
     .save(videoPath)
     .on('start', function (command) {
